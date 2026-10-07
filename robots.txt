@@ -1,3 +1,5 @@
-# Non-production deployment.
 User-agent: *
-Disallow: /
+Allow: /
+Disallow: /__forms.html
+
+Sitemap: https://premiumaigenesis.com/sitemap.xml
