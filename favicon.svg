@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" role="img" aria-label="Premium AI Genesis">
+  <rect width="128" height="128" fill="#171315"/>
+  <g fill="#E14232">
+    <polygon points="18,18 46,18 70,51 58,59 18,35"/>
+    <polygon points="18,53 55,53 55,75 18,75"/>
+    <polygon points="18,110 46,110 70,77 58,69 18,93"/>
+    <polygon points="79,53 110,53 110,75 79,75"/>
+  </g>
+</svg>

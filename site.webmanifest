@@ -1,0 +1,14 @@
+{
+  "name": "Premium AI Genesis",
+  "short_name": "PAG",
+  "description": "Premium AI Genesis builds practical AI systems, intelligent workflows, and digital products for complex real-world operations.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#171315",
+  "theme_color": "#171315",
+  "icons": [
+    { "src": "/icon-192.png", "type": "image/png", "sizes": "192x192" },
+    { "src": "/icon-512.png", "type": "image/png", "sizes": "512x512" },
+    { "src": "/icon-512.png", "type": "image/png", "sizes": "512x512", "purpose": "maskable" }
+  ]
+}

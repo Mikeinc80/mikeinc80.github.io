@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Netlify form registration</title>
+    <meta name="robots" content="noindex,nofollow" />
+  </head>
+  <body>
+    <!--
+      Netlify detects forms by parsing deployed HTML at build time. This file
+      registers the inquiry form's field schema. It is not linked from the site.
+    -->
+    <form name="inquiry" data-netlify="true" netlify-honeypot="company-website" hidden>
+      <input type="hidden" name="form-name" value="inquiry" />
+      <input type="text" name="name" />
+      <input type="email" name="email" />
+      <input type="text" name="organization" />
+      <input type="text" name="area" />
+      <textarea name="brief"></textarea>
+      <input type="text" name="company-website" />
+    </form>
+  </body>
+</html>
