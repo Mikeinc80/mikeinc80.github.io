@@ -1,0 +1,46 @@
+name: Publish preview site
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Unpack preview and commit
+        run: |
+          set -euo pipefail
+          if [ -f index.html ] && grep -q "Premium AI Genesis" index.html; then
+            echo "Site already published"
+            exit 0
+          fi
+          curl -fL "https://tmpfiles.org/dl/1791334748.1d56ecc807c5c85b/w7AilpveTKJq/pag-site.zip" -o /tmp/site.zip
+          rm -rf /tmp/unpacked
+          mkdir -p /tmp/unpacked
+          unzip -q /tmp/site.zip -d /tmp/unpacked
+          test -f /tmp/unpacked/index.html
+          find . -mindepth 1 -maxdepth 1 ! -name .git -exec rm -rf {} +
+          cp -a /tmp/unpacked/. .
+          printf '%s\n' \
+            '# Premium AI Genesis — preview only' \
+            '' \
+            'Preview of the Premium AI Genesis website on GitHub Pages.' \
+            '' \
+            '- URL: https://mikeinc80.github.io/' \
+            '- Not production. premiumaigenesis.com is not attached.' \
+            '- No custom domain and no DNS changes.' \
+            '- Built non-indexable (robots.txt disallows all crawlers).' \
+            '' \
+            'Source of truth remains the private premium-ai-genesis repository.' \
+            > README.md
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git commit -m "Publish unpacked Premium AI Genesis preview"
+          git push origin HEAD:main
